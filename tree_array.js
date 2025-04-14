@@ -5,7 +5,7 @@ let list = [
   {id: 3, pid: 1, name: "哈哈"},
 ]
 
-console.log(toTree(list));
+console.log(JSON.stringify(ToTree(list)));
 
 function ToTree(arr){
   return dfs(arr, "");
@@ -50,11 +50,11 @@ function wideTraversal(node){
 }
 
 
-[
+const tree = [
   {
       "id": 0,
       "pid": "",
-      "name": "北京",
+      "name": "大范围",
       "subs": [
           {
               "id": 1,
@@ -93,3 +93,5 @@ function wideTraversal(node){
       ]
   }
 ]
+
+console.log(wideTraversal(tree))
