@@ -41,3 +41,32 @@ var permute = function(nums) {
 };
 
 console.log(permute([1,2,3]))
+
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+ /**
+    [1,0,]
+
+    [1,2,3]
+  */
+    var permute = function(nums) {
+      const result = [];
+      const flags = Array(nums.length).fill(0);
+      const dfs = (nums, path) => {
+          if (path.length === nums.length) {
+              result.push(path);
+              return;
+          }
+          for (let i = 0; i< nums.length; i++) {
+              if (flags[i]) continue;
+              const newPath = [...path, nums[i]]
+              flags[i] = 1;
+              dfs(nums, newPath);
+              flags[i] = 0;
+          }
+      }
+      dfs(nums, []);
+      return result
+  };

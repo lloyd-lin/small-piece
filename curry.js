@@ -14,3 +14,9 @@ function curry(fn, arity = fn.length, ...args) {
   return arity <= args.length ? 
     fn(...args) : curry.bind(null, fn, arity, ...args);
 }
+
+const addCurry = curry(add)
+
+console.log(addCurry(1)(2))
+
+
